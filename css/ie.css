@@ -1,0 +1,11 @@
+
+
+
+.logo-box-dl a:hover{color: red;}
+#wenzi-1{margin-top: -165px;}
+.reward .wenzi{margin-top: -165px; background:#000; -khtml-opacity:0.0;-moz-opacity:0.0;filter:alpha(opacity=00);filter:"alpha(opacity=60)";opacity:0.0; filter: progid:DXImageTransform.Microsoft.Alpha(opacity=00);}
+.reward .wenzi:hover{-khtml-opacity:0.9;-moz-opacity:0.9;filter:alpha(opacity=90);filter:"alpha(opacity=60)";opacity:0.9; filter: progid:DXImageTransform.Microsoft.Alpha(opacity=90);}
+.ifr iframe{background: #000; color: black;}
+#pl_weibo_show{background: #000;}
+.tanceng-a .tanceng-box{width: 270px; height: 147px; background: url(../images/smtc.png) no-repeat; 
+position: fixed; top: 20%; padding:30px 20px; left: 50%; margin-left: -150px; background-size:cover ;}
