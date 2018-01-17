@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+<div class="register">
+    <!--邮箱成功-->
+    <div class="email">
+        <h2>感谢您的注册，请立即激活账号。</h2>
+        <p>我们已经给您的邮箱<span id="account"></span>发送了一封确认邮件，请在收到邮件后，点击激活链接即可。</p>
+        <a id="emailhref" href="#" class="check">立即查看邮件</a>
+        <div class="footer">
+            <p>还没收到确认邮件：</p>
+            <p>1、请尝试到广告邮件、垃圾邮件目录里找找看。</p>
+            <p>2、重新<a id="resendemail" href="#">发送注册确认邮件。</a></p>
+            <p>3、如果长时间未收到邮件，请<a href="javascript:document.location.href ='index.html'">重新注册</a>。</p>
+        </div>
+    </div>
+</div>
+</body>
+<script src="js/jquery-1.7.2.min.js"></script>
+<script src="js/regfast-utils-2.0.js"></script>
+<script type="text/javascript">
+    var userAccount = getQueryString("account");
+    $("#account").text(userAccount);
+    var httpserver="http://passport.kongzhong.com";
+    var gameid=getQueryString("gameid");
+    var maildomains = userAccount.split('@');
+    var maildomain = "";
+    if(maildomains.length>1){
+        maildomain = maildomains[1];
+        if(maildomain == 'gmail.com'){
+            $("#emailhref").attr("href","http://gmail.com/");    
+        }
+        else{
+            $("#emailhref").attr("href","http://mail."+maildomain);
+        }
+        $("#emailhref").attr("target","_blank");
+            $("#emailhref").css("cursor","pointer");
+    }
+    if($("#resendemail").size() > 0){
+        $("#resendemail").click(function(){
+            $.ajaxSetup({async:false});
+            $.post(httpserver+"/ajax/resendregemail/"+gameid+"?callback=?", {email:userAccount}, function(data){
+                if(data.state == 1){
+                    alert("激活邮件已发送");
+                }else{
+                    alert("激活邮件发送失败");
+                }
+            }, "json");
+            $.ajaxSetup({async:true});
+            $("#resendemail").unbind("click");
+        });
+    }
+</script>
+</html>

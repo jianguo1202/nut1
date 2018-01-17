@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+<div class="register">
+<!--手机号成功-->
+    <div class="iphone">
+        <h2>恭喜您，账号注册成功！</h2>
+        <p>请牢记您的空中网账号<span id="account"></span>，为了您的账号安全，请不要告诉任何人相关账号信息。</p>
+        <ul>
+            <li><a href="#">领取新手礼包</a></li>
+            <li><a href="#">下载游戏</a></li>
+            <li><a href="#">下载游戏2</a></li>
+        </ul>
+    </div>
+</div>
+</body>
+<script src="js/jquery-1.7.2.min.js"></script>
+<script src="js/regfast-utils-2.0.js"></script>
+<script language="javascript">
+         var account = getQueryString("account");
+         if(account){
+            $("#account").text(account);
+         }
+</script>
+</html>
