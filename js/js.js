@@ -41,6 +41,15 @@ $(document).ready(function() {
 		'width': win_width + 'px',
 		'height': win_height + 'px'
 	});
+	var bili=win_height/win_width;
+	$('.video-box').css({
+		'width': win_width + 'px',
+		'height': win_height + 'px',
+		'padding-bottom':bili+'%'
+	});
+	
+	console.log(bili);
+	
 	var oV = document.getElementById('myVideo');
 
 	function rnd(n, m) {
@@ -84,6 +93,8 @@ $(document).ready(function() {
 	document.getElementById('star').addEventListener('click', function(event) {
 		if(swit) {
 			$('.main').hide();
+			$('.video-box').hide();
+			$('.video-box0').show();
 			$('#myVideo').show();
 			videoPlay('myVideo');
 		}
@@ -95,6 +106,7 @@ $(document).ready(function() {
 
 	oV.addEventListener('ended', function() {
 		$('#myVideo').hide();
+		$('.video-box').hide();
 		m_index++;
 		$('.main').hide();
 		$('.main-2').show().css({
@@ -105,7 +117,8 @@ $(document).ready(function() {
 	//打电话质问
 	$('#main-btn1').on('click', function() {
 		m_index++;
-		$('.videos').hide()
+		$('.video-box').hide()
+		$('.video-box1').show();
 		$('#myVideo1').show().css({
 			'z-index': m_index
 		}).get(0).play();
@@ -114,7 +127,8 @@ $(document).ready(function() {
 	//当做没看到
 	$('#main-btn2').on('click', function() {
 		m_index++;
-		$('.videos').hide()
+		$('.video-box').hide();
+		$('.video-box2').show();
 		$('#myVideo2').show().css({
 			'z-index': m_index
 		}).get(0).play();
@@ -123,7 +137,8 @@ $(document).ready(function() {
 	//跟上去一探究竟
 	$('#main-btn3').on('click', function() {
 		m_index++;
-		$('.videos').hide()
+		$('.video-box').hide();
+		$('.video-box3').show();
 		$('#myVideo3').show().css({
 			'z-index': m_index
 		}).get(0).play();
