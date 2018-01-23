@@ -45,45 +45,44 @@ $(document).ready(function() {
 	}
 	var barnum=0;
 
-	var timer=setInterval(function(){
-//		var TimeRanges=oV.buffered;//获取时间对象
-//		var timeBuffered =TimeRanges.end(TimeRanges.length - 1);
-//		var bufferPercent = (timeBuffered / oV.duration)*100; //获取缓冲百分比返回数字
-//	    var strbuff=bufferPercent.toString();//转为字符串
-//	    var arrnum=strbuff.split('.');//切割
-//	    var arrnum1=arrnum[0];//拿到数组
-//	    $('.bar').html(arrnum1+'%...');
-//		console.log(strbuff);
-		
-		barnum=rnd(0,5)+barnum;
-		if(barnum<100){
-			$('.bar').html(barnum+'%...');
-		}
-		
-		if(barnum>=100){//完成百分之九十九	
-			$('.bar').html('100%');
-			//$('.main').hide();			
-			window.clearTimeout(timer);
-			//oV.play();			
-		}
-	},30);
+//	var timer=setInterval(function(){
+////		var TimeRanges=oV.buffered;//获取时间对象
+////		var timeBuffered =TimeRanges.end(TimeRanges.length - 1);
+////		var bufferPercent = (timeBuffered / oV.duration)*100; //获取缓冲百分比返回数字
+////	    var strbuff=bufferPercent.toString();//转为字符串
+////	    var arrnum=strbuff.split('.');//切割
+////	    var arrnum1=arrnum[0];//拿到数组
+////	    $('.bar').html(arrnum1+'%...');
+////		console.log(strbuff);
+//		
+//		barnum=rnd(0,5)+barnum;
+//		if(barnum<100){
+//			$('.bar').html(barnum+'%...');
+//		}
+//		
+//		if(barnum>=100){//完成百分之九十九	
+//			$('.bar').html('100%');
+//			//$('.main').hide();			
+//			window.clearTimeout(timer);
+//			//oV.play();			
+//		}
+//	},30);
 
-//	imgLoader(["images/bg.jpg","images/bg1.jpg","images/bg2.jpg","images/bg3.jpg","images/bg4.jpg","images/btn1.png","images/btn2.png","images/btn3.png","images/main-btn1.png","images/main-btn2.png","images/main-btn3.png"], function (percentage) {
-//  	var percentT = percentage * 100;
-//  	$('.bar').html((parseInt(percentT)) + '%...');
-//  	if (percentage == 1) {
-//        	$('.bar').html('100%');
-//			$('.main').hide();			
-//			//window.clearTimeout(timer);
-//			document.getElementById('myVideo').play();
-//  	}
-//	});
+		imgLoader(["images/bg.jpg","images/bg1.jpg","images/bg2.jpg","images/bg3.jpg","images/bg4.jpg","images/btn1.png","images/btn2.png","images/btn3.png","images/main-btn1.png","images/main-btn2.png","images/main-btn3.png"], function (percentage) {
+		    var percentT = percentage * 100;
+	    	$('.bar').html((parseInt(percentT)) + '%...');
+	    	if (percentage == 1) {
+	          	$('.bar').html('100%');
+				swit=true;
+	    	}
+		});
+	
 		document.getElementById('star').addEventListener('click', function(event) {
-			//dualtouchstart 双指操作
-			$('.main').hide(); 
-			$('#myVideo').show();
-			
-           videoPlay('myVideo');     
+			if(swit){
+				$('.main').hide(); 
+				$('#myVideo').show();				
+	          	 videoPlay('myVideo');
+			}
         }, false);
 		document.body.addEventListener('touchmove', function(e) {
             e.preventDefault();
