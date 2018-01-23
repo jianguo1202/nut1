@@ -19,7 +19,7 @@ a{ color:#fff; }
 .main-1{display: block;background:url(../images/bg.jpg) no-repeat ; background-size:cover; overflow: hidden; position: absolute; top: 0 ;left: 0;z-index: 2;} 
 .bar{text-align: center; font-size: 0.3rem;margin-top: 6.6rem; font-weight: bold;}
 .videos{position: fixed;left: 0 ;top: 0; z-index:1 ;display: none;}
-#myVideo{display: block;}
+#myVideo{display: none;}
 .main-2{display: none;background:url(../images/bg1.jpg) no-repeat ; background-size:cover; overflow: hidden; position: absolute; top: 0 ;left: 0; z-index: 3;}
 .main-2 a{display: block; width: 5.22rem; height: 1.36rem;margin: 0 auto;}
 #main-btn1{background: url(../images/main-btn1.png) no-repeat; background-size:cover ; margin-top: 3.8rem;}
@@ -36,7 +36,7 @@ a{ color:#fff; }
 
 .main-6{background:rgba(0,0,0,0.8);}
 .main-6 div{width:2.71rem; height: 2.7rem; background: url(../images/btn3.png) no-repeat;position: absolute; right: 20px; top: 20px;background-size:cover ;}
-
+#star{width: 2.39rem; height: 0.72rem;display: block; background: url(../images/star.png) no-repeat; background-size:cover ;margin: 0 auto; margin-top: 1.0rem;}
 
 /*弹窗使用.rule{width:7.0rem ;}
 .rule h5{width: 7.0rem; height:0.8rem ; background: #cc9342; color:#fffaa6 ; text-align: center; line-height: 0.8rem; font-size: 0.38rem;} 

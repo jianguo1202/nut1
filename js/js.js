@@ -25,7 +25,14 @@ DOMReady(
 );
 
 $(document).ready(function() {
-	
+//可以在这个事件触发后播放一次然后暂停（这样以后视频会处于加载状态，为后面的流畅播放做准备）
+	function videoPlay(id){
+		var video=document.getElementById(id);
+		video.play();
+		document.addEventListener("WeixinJSBridgeReady", function (){ 
+	   	 	video.play();
+		}, false)
+	}	
 	var swit=false;
 	var m_index=10;
 	var win_height=$(window).height(),
@@ -55,11 +62,37 @@ $(document).ready(function() {
 		
 		if(barnum>=100){//完成百分之九十九	
 			$('.bar').html('100%');
-			$('.main').hide();			
+			//$('.main').hide();			
 			window.clearTimeout(timer);
-			oV.play();			
+			//oV.play();			
 		}
 	},30);
+
+//	imgLoader(["images/bg.jpg","images/bg1.jpg","images/bg2.jpg","images/bg3.jpg","images/bg4.jpg","images/btn1.png","images/btn2.png","images/btn3.png","images/main-btn1.png","images/main-btn2.png","images/main-btn3.png"], function (percentage) {
+//  	var percentT = percentage * 100;
+//  	$('.bar').html((parseInt(percentT)) + '%...');
+//  	if (percentage == 1) {
+//        	$('.bar').html('100%');
+//			$('.main').hide();			
+//			//window.clearTimeout(timer);
+//			document.getElementById('myVideo').play();
+//  	}
+//	});
+		document.getElementById('star').addEventListener('click', function(event) {
+			//dualtouchstart 双指操作
+			$('.main').hide(); 
+			$('#myVideo').show();
+			
+           videoPlay('myVideo');     
+        }, false);
+		document.body.addEventListener('touchmove', function(e) {
+            e.preventDefault();
+            return false;
+        }, false);
+        
+        
+        
+        
 	oV.addEventListener('ended',function(){
 		$('#myVideo').hide();
 		m_index++;
